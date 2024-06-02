@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: "${BRANCH}", url: "${REPO_URL}"
+                git branch: "${BRANCH}", url: "${REPO_URL}", credentialsId: 'github-token'
             }
         }
         stage('Build') {
@@ -21,6 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
+                sh 'pip install -r requirements.txt'
                 sh 'python3 -m unittest discover'
             }
         }
