@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/yourusername/your-repo.git'
+        REPO_URL = 'https://github.com/fearssniper/jenkins-test.git'  // Use the correct repository URL
         BRANCH = 'main'
     }
 
