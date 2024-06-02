@@ -17,7 +17,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Run a build script (assume it exists in the repository)
+                // Set executable permissions for the build script
+                sh 'chmod +x ./${BUILD_SCRIPT}'
+                // Run the build script
                 sh './${BUILD_SCRIPT}'
             }
         }
